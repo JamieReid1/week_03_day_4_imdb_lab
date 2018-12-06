@@ -1,5 +1,7 @@
 
 require_relative('../db/sql_runner')
+require_relative('movie')
+require_relative('casting')
 
 class Star
 
@@ -11,6 +13,7 @@ class Star
     @first_name = options['first_name']
     @last_name = options['last_name']
   end
+
 
   def self.delete_all()
     sql = "DELETE FROM stars"
@@ -32,10 +35,6 @@ class Star
     movies = SqlRunner.run(sql, values)
     return movies.map { | movie| Movie.new(movie) }
   end
-
-
-
-
 
 
 end

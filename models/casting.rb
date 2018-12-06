@@ -1,5 +1,7 @@
 
 require_relative('../db/sql_runner')
+require_relative('star')
+require_relative('movie')
 
 class Casting
 
@@ -25,6 +27,17 @@ class Casting
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
 
+  def fees()
+    return @fee
+  end
+
+  # def self.star()
+  #   sql = "SELECT fee FROM castings WHERE castings.star_id = $1"
+  #   values = [@id]
+  #   fees = SqlRunner.run(sl, values)
+  #   binding.pry
+  #   return fees.map { |fee| fee }
+  # end
 
 
 end
